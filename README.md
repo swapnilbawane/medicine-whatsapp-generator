@@ -1,7 +1,5 @@
 # 💊 Medicine App (WhatsApp List Generator)
-
-A simple tool to generate and send medicine lists on WhatsApp in seconds.
-
+Generate WhatsApp-ready medicine lists using Google Sheets
 ---
 
 ## 🚀 What this does
