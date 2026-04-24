@@ -1,5 +1,7 @@
 # 💊 Medicine App (WhatsApp List Generator)
+
 Generate WhatsApp-ready medicine lists using Google Sheets
+
 ---
 
 ## 🚀 What this does
@@ -19,13 +21,13 @@ Also supports manual entry if needed.
 
 Open this Google Sheet:
 
-<a href="https://docs.google.com/spreadsheets/d/1CfkIzPTlsnh0Z4ApwJw3GOII7dBkwGl--nQEcOpvBRk/edit?usp=sharing" target="_blank">  
-Open Template Sheet
-</a>
+👉 Open Template Sheet  
+https://docs.google.com/spreadsheets/d/1CfkIzPTlsnh0Z4ApwJw3GOII7dBkwGl--nQEcOpvBRk/edit?usp=sharing  
 
 Click:  
-File → Make a copy
-👉 Tip: Use Ctrl + Click (Windows/Linux) or Cmd + Click (Mac) to open in a new tab
+**File → Make a copy**  
+
+👉 Tip: Use Ctrl + Click (Windows/Linux) or Cmd + Click (Mac) to open in a new tab  
 
 This creates your personal version.
 
@@ -36,12 +38,12 @@ This creates your personal version.
 In your copied sheet:
 
 Click:  
-Share
+**Share**
 
 Set:  
-Anyone with the link → Viewer
+**Anyone with the link → Viewer**
 
-Click Done
+Click **Done**
 
 ---
 
@@ -49,13 +51,13 @@ Click Done
 
 Click:
 
-File → Share → Publish to web
+**File → Share → Publish to web**
 
 Settings:
-- Entire document
-- CSV
+- Entire document  
+- CSV  
 
-Click Publish
+Click **Publish**
 
 This step is required for the app to load your data.
 
@@ -65,12 +67,16 @@ This step is required for the app to load your data.
 
 From your copied sheet URL:
 
+
 https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit
+
 
 Copy the part between `/d/` and `/edit`
 
 Example:
+
 XXXXXXXXXXXX
+
 
 (This is your Sheet ID)
 
@@ -78,13 +84,15 @@ XXXXXXXXXXXX
 
 ### Step 5: Update the app
 
-Open index.html in a text editor (Notepad / VS Code)
+Open `index.html` in a text editor (Notepad / VS Code)
 
 Find:
 
-    const SHEET_ID = "XXXXX";
 
-Replace XXXXX with your Sheet ID
+const SHEET_ID = "XXXXX";
+
+
+Replace `XXXXX` with your Sheet ID
 
 Save the file.
 
@@ -92,10 +100,108 @@ Save the file.
 
 ### Step 6: Open the app
 
-Double-click index.html  
+Double-click `index.html`  
 (or open it in Chrome)
 
 Done 👍
+
+---
+
+## 🧾 How to customize for your family
+
+All your data lives in the Google Sheet.
+
+You only need to edit 3 tabs:
+
+---
+
+### 1. medicines
+
+This is your master list.
+
+| medicine_id | medicine_name |
+|------------|--------------|
+| 1 | Telma 40mg |
+| 2 | Metformin 500mg |
+
+👉 To add a medicine:
+- Add a new row  
+- Give a new `medicine_id` (just next number)  
+- Enter the name  
+
+👉 To delete:
+- Remove the row  
+
+👉 To rename:
+- Edit the medicine name directly  
+
+---
+
+### 2. presets
+
+This defines patient + doctor combinations.
+
+| preset_id | preset_name | patient_name | doctor_name |
+|----------|------------|--------------|-------------|
+| 1 | Mom – Dr. Sanyal | Mrs Neeru Sharma | Dr Sanyal |
+
+👉 To add a new person:
+- Add a new row  
+- Give a new `preset_id`  
+- Fill name + doctor  
+
+👉 To edit:
+- Just change values  
+
+👉 To delete:
+- Remove the row  
+
+---
+
+### 3. preset_medicines
+
+This connects presets to medicines.
+
+| preset_id | medicine_id |
+|----------|-------------|
+| 1 | 1 |
+| 1 | 2 |
+
+👉 To add a medicine to a preset:
+- Add a row with:
+  - preset_id  
+  - medicine_id  
+
+👉 To remove:
+- Delete that row  
+
+---
+
+## 🧠 Example
+
+You want:
+
+**Dad – Dr Sharma**  
+Medicines: Crocin, Electral  
+
+Steps:
+
+1. Add in `medicines`
+   - Crocin  
+   - Electral  
+
+2. Add in `presets`
+   - Dad – Dr Sharma  
+
+3. Link in `preset_medicines`
+   - preset_id → medicine_id  
+
+---
+
+## ⚡ Tip
+
+- After editing the sheet → just refresh the app  
+- No need to touch code again  
 
 ---
 
@@ -119,7 +225,7 @@ Yes 👍
 
 - No installation needed  
 - No server required  
-- Just open index.html in your browser  
+- Just open `index.html` in your browser  
 
 Works best in Chrome.
 
@@ -135,7 +241,6 @@ Deployment is not required.
 ### When should you deploy?
 
 Only if you want:
-
 - To share with family via a link  
 - To use it across multiple devices  
 
@@ -143,14 +248,16 @@ Only if you want:
 
 ### Optional: How to deploy
 
-Upload the index.html file to:
+Upload the `index.html` file to:
 
-- Netlify (drag & drop)
-- GitHub Pages
+- Netlify (drag & drop)  
+- GitHub Pages  
 
 You will get a link like:
 
+
 https://your-app.netlify.app
+
 
 ---
 
@@ -168,7 +275,7 @@ https://your-app.netlify.app
 
 Make sure you did:
 
-File → Share → Publish to web
+**File → Share → Publish to web**
 
 ---
 
